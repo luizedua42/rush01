@@ -49,7 +49,8 @@ int	main(int argc, char **argv)
 {
 	char	**matrix;
 
-	(void)argc;
+	if (1 == argc)
+		return (1);
 	matrix = malloc(4 * sizeof(char *));
 	matrix[0] = malloc(4 * sizeof(char));
 	matrix[1] = malloc(4 * sizeof(char));
