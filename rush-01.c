@@ -6,96 +6,22 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:24:40 by luizedua          #+#    #+#             */
-/*   Updated: 2023/05/29 17:38:40 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/05/29 19:26:23 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <unistd.h>
 
-void	free_matrix(char **matrix, int height);
+void	ft_putchar(char c);
+void	putspace(void);
+void	putspaces();
+void	print_top(char **matrix, int width);
+void	print_middle(char **matrix);
+void	print_bottom(char **matrix, int width);
+void	print_borders(char **matrix, int width);
+static char **init_matrix(char **argv);
+static void	free_matrix(char **matrix, int height);
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	putspace(void)
-{
-	write(1, "  ", 2);
-}
-
-void putspaces()
-{
-	putspace();
-	putspace();
-	putspace();
-	putspace();
-	putspace();
-	putspace();
-}
-
-void	print_middle(char **matrix)
-{
-	ft_putchar(matrix[2][0]);
-	putspaces();
-	ft_putchar(matrix[3][0]);
-	ft_putchar('\n');
-
-	ft_putchar(matrix[2][1]);
-	putspaces();
-	ft_putchar(matrix[3][1]);
-	ft_putchar('\n');
-
-	ft_putchar(matrix[2][2]);
-	putspaces();
-	ft_putchar(matrix[3][2]);
-	ft_putchar('\n');
-	
-	ft_putchar(matrix[2][3]);
-	putspaces();
-	ft_putchar(matrix[3][3]);
-	ft_putchar('\n');
-}
-
-void	print_top(char **matrix, int width)
-{
-	int	j;
-
-	j = 0;
-	putspace();
-	while (j < width)
-	{
-		ft_putchar(matrix[0][j]);
-		if (j != width - 1)
-			putspace();
-		j++;
-	}
-}
-
-void	print_bottom(char **matrix, int width)
-{
-	int	j;
-
-	j = 0;
-	putspace();
-	while (j < width)
-	{
-		ft_putchar(matrix[1][j]);
-		if (j != width - 1)
-			putspace();
-		j++;
-	}
-}
-
-void	print_borders(char **matrix, int width)
-{
-	print_top(matrix, width);
-	ft_putchar('\n');
-	print_middle(matrix);
-	print_bottom(matrix, width);
-	ft_putchar('\n');
-}
 
 int	main(int argc, char **argv)
 {
@@ -103,6 +29,17 @@ int	main(int argc, char **argv)
 
 	if (1 == argc)
 		return (1);
+	matrix = init_matrix(argv);
+	print_borders(matrix, 4);
+	free_matrix(matrix, 4);
+}
+
+
+
+static char **init_matrix(char **argv)
+{
+	char **matrix;
+	
 	matrix = malloc(4 * sizeof(char *));
 	matrix[0] = malloc(4 * sizeof(char));
 	matrix[1] = malloc(4 * sizeof(char));
@@ -124,11 +61,10 @@ int	main(int argc, char **argv)
 	matrix[3][1] = argv[1][26];
 	matrix[3][2] = argv[1][28];
 	matrix[3][3] = argv[1][30];
-	print_borders(matrix, 4);
-	free_matrix(matrix, 4);
+	return (matrix);
 }
 
-void	free_matrix(char **matrix, int height)
+static void	free_matrix(char **matrix, int height)
 {
 	int	i;
 
