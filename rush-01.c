@@ -25,25 +25,39 @@ void	putspace(void)
 	write(1, "  ", 2);
 }
 
-void	print_middle(char **matrix, int width)
+void putspaces()
 {
-	int	j;
-	int	spaces;
-
-	j = 0;
-	spaces = 0;
-	while (j < width)
-	{
-		ft_putchar(matrix[2][j]);
-		while (spaces < width)
-		{
-			putspace();
-			spaces++;
-		}
-		ft_putchar(matrix[3][j]);
-		j++;
-	}
+	putspace();
+	putspace();
+	putspace();
+	putspace();
+	putspace();
+	putspace();
 }
+
+void	print_middle(char **matrix)
+{
+	ft_putchar(matrix[2][0]);
+	putspaces();
+	ft_putchar(matrix[3][0]);
+	ft_putchar('\n');
+
+	ft_putchar(matrix[2][1]);
+	putspaces();
+	ft_putchar(matrix[3][1]);
+	ft_putchar('\n');
+
+	ft_putchar(matrix[2][2]);
+	putspaces();
+	ft_putchar(matrix[3][2]);
+	ft_putchar('\n');
+	
+	ft_putchar(matrix[2][3]);
+	putspaces();
+	ft_putchar(matrix[3][3]);
+	ft_putchar('\n');
+}
+
 void	print_top(char **matrix, int width)
 {
 	int	j;
@@ -58,13 +72,14 @@ void	print_top(char **matrix, int width)
 		j++;
 	}
 }
+
 void	print_bottom(char **matrix, int width)
 {
 	int	j;
 
 	j = 0;
 	putspace();
-	while (j <= width)
+	while (j < width)
 	{
 		ft_putchar(matrix[1][j]);
 		if (j != width - 1)
@@ -72,18 +87,12 @@ void	print_bottom(char **matrix, int width)
 		j++;
 	}
 }
-void	print_borders(char **matrix, int width, int height)
-{
-	int	i;
 
-	i = -1;
+void	print_borders(char **matrix, int width)
+{
 	print_top(matrix, width);
 	ft_putchar('\n');
-	while (++i < height)
-	{
-		print_middle(matrix, width);
-		ft_putchar('\n');
-	}
+	print_middle(matrix);
 	print_bottom(matrix, width);
 	ft_putchar('\n');
 }
@@ -115,7 +124,7 @@ int	main(int argc, char **argv)
 	matrix[3][1] = argv[1][26];
 	matrix[3][2] = argv[1][28];
 	matrix[3][3] = argv[1][30];
-	print_borders(matrix, 4, 4);
+	print_borders(matrix, 4);
 	free_matrix(matrix, 4);
 }
 
