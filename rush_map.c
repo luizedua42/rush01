@@ -1,27 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rush_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/30 14:07:19 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/05/30 14:12:14 by vcedraz-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <unistd.h>
 
-void	free_matrix(char **matrix, int height);
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	putspace(void)
-{
-	write(1, "  ", 2);
-}
-
-void putspaces()
-{
-	putspace();
-	putspace();
-	putspace();
-	putspace();
-	putspace();
-	putspace();
-}
+void	putspaces(void);
+void	putspace(void);
+void	ft_putchar(char c);
 
 void	print_middle(char **matrix)
 {
@@ -29,17 +23,14 @@ void	print_middle(char **matrix)
 	putspaces();
 	ft_putchar(matrix[3][0]);
 	ft_putchar('\n');
-
 	ft_putchar(matrix[2][1]);
 	putspaces();
 	ft_putchar(matrix[3][1]);
 	ft_putchar('\n');
-
 	ft_putchar(matrix[2][2]);
 	putspaces();
 	ft_putchar(matrix[3][2]);
 	ft_putchar('\n');
-	
 	ft_putchar(matrix[2][3]);
 	putspaces();
 	ft_putchar(matrix[3][3]);
