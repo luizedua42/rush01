@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_free_matrix.c                                 :+:      :+:    :+:   */
+/*   init_matrix.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 14:11:22 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/05/31 18:18:41 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/05/31 18:25:40 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/05/31 18:33:30 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include.h"
 
+int	ft_strlen(char *str)
+{
+	char	*end;
+
+	end = str;
+	while (end && *end)
+		end++;
+	return (end - str);
+}
+
 char	**init_matrix(char **argv)
 {
 	char	**matrix;
+	char	**error;
 
+	error = NULL;
+	if (ft_strlen(argv[1]) != 31)
+		return (error);
 	matrix = malloc(4 * sizeof(char *));
 	matrix[0] = malloc(4 * sizeof(char));
 	matrix[1] = malloc(4 * sizeof(char));
@@ -38,14 +52,4 @@ char	**init_matrix(char **argv)
 	matrix[3][2] = argv[1][28];
 	matrix[3][3] = argv[1][30];
 	return (matrix);
-}
-
-void	free_matrix(char **matrix, int height)
-{
-	int	i;
-
-	i = -1;
-	while (++i < height)
-		free(matrix[i]);
-	free(matrix);
 }

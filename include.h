@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:48:26 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/05/31 18:20:22 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:32:26 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+int		error(void);
 int		cols_are_valid(char **args);
 int		lines_are_valid(char **args);
 int		lines_are_valid(char **args);
