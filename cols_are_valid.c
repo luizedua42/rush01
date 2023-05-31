@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush_putstuff.c                                    :+:      :+:    :+:   */
+/*   cols_are_valid.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 14:08:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/05/30 14:08:38 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/05/31 18:13:14 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/05/31 18:16:19 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include.h"
-
-void	ft_putchar(char c)
+int	cols_are_valid(char **args)
 {
-	write(1, &c, 1);
-}
+	int	x;
 
-void	putspace(void)
-{
-	write(1, "  ", 2);
-}
-
-void	putspaces(void)
-{
-	putspace();
-	putspace();
-	putspace();
-	putspace();
-	putspace();
-	putspace();
+	x = 0;
+	while (x < 4)
+	{
+		if (args[0][x] == '4' && args[1][x] >= '2')
+			return (0);
+		if ((args[0][x] == '3' || args[0][x] == '2') && args[1][x] == '4')
+			return (0);
+		if (args[0][x] == '1' && args[1][x] == '1')
+			return (0);
+		if (args[0][x] == '3' && args[1][x] == '3')
+			return (0);
+		x++;
+	}
+	return (1);
 }

@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush_init_free_matrix.c                            :+:      :+:    :+:   */
+/*   init_free_matrix.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:11:22 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/05/30 14:11:40 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:18:41 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
+#include "include.h"
 
 char	**init_matrix(char **argv)
 {

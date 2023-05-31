@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush_map.c                                         :+:      :+:    :+:   */
+/*   print_borders.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 14:07:19 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/05/30 14:12:14 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/05/31 18:19:23 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/05/31 18:20:58 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
+#include "include.h"
 
-void	putspaces(void);
-void	putspace(void);
-void	ft_putchar(char c);
+static void	print_top(char **matrix, int width);
+static void	print_middle(char **matrix);
+static void	print_bottom(char **matrix, int width);
 
-void	print_middle(char **matrix)
+void	print_borders(char **matrix, int width)
+{
+	print_top(matrix, width);
+	ft_putchar('\n');
+	print_middle(matrix);
+	print_bottom(matrix, width);
+	ft_putchar('\n');
+}
+
+static void	print_middle(char **matrix)
 {
 	ft_putchar(matrix[2][0]);
 	putspaces();
@@ -37,7 +45,7 @@ void	print_middle(char **matrix)
 	ft_putchar('\n');
 }
 
-void	print_top(char **matrix, int width)
+static void	print_top(char **matrix, int width)
 {
 	int	j;
 
@@ -52,7 +60,7 @@ void	print_top(char **matrix, int width)
 	}
 }
 
-void	print_bottom(char **matrix, int width)
+static void	print_bottom(char **matrix, int width)
 {
 	int	j;
 
@@ -65,13 +73,4 @@ void	print_bottom(char **matrix, int width)
 			putspace();
 		j++;
 	}
-}
-
-void	print_borders(char **matrix, int width)
-{
-	print_top(matrix, width);
-	ft_putchar('\n');
-	print_middle(matrix);
-	print_bottom(matrix, width);
-	ft_putchar('\n');
 }
