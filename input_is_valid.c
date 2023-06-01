@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush-01.c                                          :+:      :+:    :+:   */
+/*   input_is_valid.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 15:24:40 by luizedua          #+#    #+#             */
-/*   Updated: 2023/06/01 11:08:47 by luizedua         ###   ########.fr       */
+/*   Created: 2023/06/01 10:46:27 by luizedua          #+#    #+#             */
+/*   Updated: 2023/06/01 11:09:26 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include.h"
 
-int	main(int argc, char **argv)
+static int ft_strlen(char *str)
 {
-	char	**matrix;
+	char *end;
 
-	if (1 == argc)
-		return (1);
-	if (!input_is_valid(argv))
-		return (error());
-	matrix = init_matrix(argv);
-	if (!lines_are_valid(matrix) || !cols_are_valid(matrix))
-	{
-		printf("error\n");
-		free_matrix(matrix, 4);
+	end = str;
+	while (end && *end)
+		end++;
+	return (end - str);
+}
+
+int input_is_valid(char **argv)
+{
+	int	i;
+
+	i= 0;
+	if (ft_strlen(argv[1]) != 31)
 		return (0);
+	while(argv[1][i])
+	{
+		if (argv[1][i] != '1' \
+		&& argv[1][i] != '2' \
+		&& argv[1][i] != '3' \
+		&& argv[1][i] != '4' && argv[1][i] != ' ')
+			return (0);
+		i++;
 	}
-	print_borders(matrix, 4);
+	return (1);
 }

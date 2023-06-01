@@ -3,33 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   init_matrix.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 18:25:40 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/05/31 18:33:30 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/06/01 11:01:09 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include.h"
 
-int	ft_strlen(char *str)
-{
-	char	*end;
 
-	end = str;
-	while (end && *end)
-		end++;
-	return (end - str);
-}
 
 char	**init_matrix(char **argv)
 {
 	char	**matrix;
-	char	**error;
 
-	error = NULL;
-	if (ft_strlen(argv[1]) != 31)
-		return (error);
 	matrix = malloc(4 * sizeof(char *));
 	matrix[0] = malloc(4 * sizeof(char));
 	matrix[1] = malloc(4 * sizeof(char));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   include.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:48:26 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/05/31 18:32:26 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/06/01 11:00:51 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	free_matrix(char **matrix, int height);
 void	putspaces(void);
 void	putspace(void);
 void	ft_putchar(char c);
+int		input_is_valid(char **argv);
 
 #endif
