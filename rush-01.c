@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:24:40 by luizedua          #+#    #+#             */
-/*   Updated: 2023/06/01 11:08:47 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:32:53 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char **argv)
 {
 	char	**matrix;
+	char	***meta_matrix;
 
 	if (1 == argc)
 		return (1);
@@ -26,5 +27,6 @@ int	main(int argc, char **argv)
 		free_matrix(matrix, 4);
 		return (error());
 	}
-	print_matrix(matrix);
+	meta_matrix = init_meta_matrix();
+	print_matrix(meta_matrix[0], 4);
 }

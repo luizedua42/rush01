@@ -1,0 +1,89 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_matrix_tests_01.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/01 15:35:37 by luizedua          #+#    #+#             */
+/*   Updated: 2023/06/01 16:49:28 by vcedraz-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "include.h"
+
+char	***init_meta_matrix(void)
+{
+	char	***meta_matrix;
+
+	meta_matrix = malloc(8 * sizeof(char **));
+	meta_matrix[0] = c_1xxxx2();
+	meta_matrix[1] = c_1xxxx3();
+	meta_matrix[2] = c_1xxxx4();
+	meta_matrix[3] = c_2xxxx2();
+	meta_matrix[4] = c_2xxxx3();
+	meta_matrix[5] = c_3xxxx1();
+	meta_matrix[6] = c_3xxxx2();
+	meta_matrix[7] = c_4xxxx1();
+	return (meta_matrix);
+}
+
+char	**c_1xxxx2(void)
+{
+	char	**matrix;
+
+	matrix = malloc(4 * sizeof(char *));
+	matrix[0] = malloc(5 * sizeof(char));
+	matrix[1] = malloc(5 * sizeof(char));
+	matrix[2] = malloc(5 * sizeof(char));
+	matrix[3] = malloc(5 * sizeof(char));
+	matrix[0] = "4123";
+	matrix[1] = "4132";
+	matrix[2] = "4213";
+	matrix[3] = "4312";
+	return (matrix);
+}
+
+char	**c_1xxxx3(void)
+{
+	char	**matrix;
+
+	matrix = malloc(3 * sizeof(char *));
+	matrix[0] = malloc(5 * sizeof(char));
+	matrix[1] = malloc(5 * sizeof(char));
+	matrix[2] = malloc(5 * sizeof(char));
+	matrix[0] = "4132";
+	matrix[1] = "4231";
+	matrix[2] = "4312";
+	return (matrix);
+}
+
+char	**c_1xxxx4(void)
+{
+	char	**matrix;
+
+	matrix = malloc(1 * sizeof(char *));
+	matrix[0] = malloc(5 * sizeof(char));
+	matrix[0] = "4321";
+	return (matrix);
+}
+
+char	**c_2xxxx2(void)
+{
+	char	**matrix;
+
+	matrix = malloc(6 * sizeof(char *));
+	matrix[0] = malloc(5 * sizeof(char));
+	matrix[1] = malloc(5 * sizeof(char));
+	matrix[2] = malloc(5 * sizeof(char));
+	matrix[3] = malloc(5 * sizeof(char));
+	matrix[4] = malloc(5 * sizeof(char));
+	matrix[5] = malloc(5 * sizeof(char));
+	matrix[0] = "1423";
+	matrix[1] = "2143";
+	matrix[2] = "2413";
+	matrix[3] = "3142";
+	matrix[4] = "3241";
+	matrix[5] = "3412";
+	return (matrix);
+}

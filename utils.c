@@ -1,30 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_matrix.c                                     :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/01 14:34:15 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/06/01 14:34:18 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/06/01 17:19:00 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/06/01 17:20:03 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include.h"
 
-void	print_matrix(char **borders)
+int	check_prefix(char *s1, char *prefix)
+{
+	int	i;
+
+	i = 0;
+	if (!prefix)
+		return (-1);
+	while (prefix[i])
+	{
+		if (s1[i] != prefix[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	print_matrix(char **borders, int size)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	while (i < 6)
+	while (i < size)
 	{
-		while (j < 6)
+		while (j < size)
 		{
 			ft_putchar(borders[i][j]);
-			if (j != 5)
+			if (j != (size - 1))
 				ft_putchar(' ');
 			j++;
 		}

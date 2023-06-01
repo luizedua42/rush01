@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:48:26 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/06/01 11:00:51 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/06/01 17:19:43 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,23 @@ int		error(void);
 int		cols_are_valid(char **args);
 int		lines_are_valid(char **args);
 int		lines_are_valid(char **args);
-void	print_matrix(char **borders);
+void	print_matrix(char **borders, int size);
 char	**init_matrix(char **argv);
 void	free_matrix(char **matrix, int height);
 void	putspaces(void);
 void	putspace(void);
 void	ft_putchar(char c);
 int		input_is_valid(char **argv);
+char	**c_1xxxx2(void);
+char	**c_1xxxx3(void);
+char	**c_1xxxx4(void);
+char	**c_2xxxx2(void);
+char	**c_2xxxx3(void);
+char	**c_3xxxx1(void);
+char	**c_3xxxx2(void);
+char	**c_4xxxx1(void);
+char	***init_meta_matrix(void);
+int		check_prefix(char *s1, char *prefix);
+char	*get_string(int left_up, int right_down, char ***meta, char *prefix);
 
 #endif
