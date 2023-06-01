@@ -12,9 +12,28 @@
 
 #include "include.h"
 
-static int ft_strlen(char *str)
+static int	ft_strlen(char *str);
+static int	char_is_valid(char *c);
+
+int	input_is_valid(char **argv)
 {
-	char *end;
+	int	i;
+
+	i = 0;
+	if (ft_strlen(argv[1]) != 31)
+		return (0);
+	while (argv[1][i])
+	{
+		if (!char_is_valid(&argv[1][i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static int	ft_strlen(char *str)
+{
+	char	*end;
 
 	end = str;
 	while (end && *end)
@@ -22,21 +41,11 @@ static int ft_strlen(char *str)
 	return (end - str);
 }
 
-int input_is_valid(char **argv)
+static int	char_is_valid(char *c)
 {
-	int	i;
-
-	i= 0;
-	if (ft_strlen(argv[1]) != 31)
+	if (*c != '1' && *c != '2' && *c != '3' && *c != '4' && *c != ' ')
 		return (0);
-	while(argv[1][i])
-	{
-		if (argv[1][i] != '1' \
-		&& argv[1][i] != '2' \
-		&& argv[1][i] != '3' \
-		&& argv[1][i] != '4' && argv[1][i] != ' ')
-			return (0);
-		i++;
-	}
+	else if (*c == ' ' && *(c + 1) == ' ')
+		return (0);
 	return (1);
 }

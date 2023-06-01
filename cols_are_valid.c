@@ -14,16 +14,16 @@ int	cols_are_valid(char **args)
 {
 	int	x;
 
-	x = 0;
-	while (x < 4)
+	x = 1;
+	while (x <= 4)
 	{
-		if (args[0][x] == '4' && args[1][x] >= '2')
+		if (args[0][x] == '4' && args[5][x] >= '2')
 			return (0);
-		if ((args[0][x] == '3' || args[0][x] == '2') && args[1][x] == '4')
+		if ((args[0][x] == '3' || args[0][x] == '2') && args[5][x] == '4')
 			return (0);
-		if (args[0][x] == '1' && args[1][x] == '1')
+		if (args[0][x] == '1' && args[5][x] == '1')
 			return (0);
-		if (args[0][x] == '3' && args[1][x] == '3')
+		if (args[0][x] == '3' && args[5][x] == '3')
 			return (0);
 		x++;
 	}

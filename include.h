@@ -21,7 +21,7 @@ int		error(void);
 int		cols_are_valid(char **args);
 int		lines_are_valid(char **args);
 int		lines_are_valid(char **args);
-void	print_borders(char **matrix, int width);
+void	print_matrix(char **borders);
 char	**init_matrix(char **argv);
 void	free_matrix(char **matrix, int height);
 void	putspaces(void);

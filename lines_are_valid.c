@@ -14,16 +14,16 @@ int	lines_are_valid(char **args)
 {
 	int	x;
 
-	x = 0;
-	while (x < 4)
+	x = 1;
+	while (x <= 4)
 	{
-		if (args[2][x] == '4' && args[3][x] >= '2')
+		if (args[x][0] == '4' && args[x][5] >= '2')
 			return (0);
-		if ((args[2][x] == '3' || args[2][x] == '2') && args[3][x] == '4')
+		if ((args[x][0] == '3' || args[x][0] == '2') && args[x][5] == '4')
 			return (0);
-		if (args[2][x] == '1' && args[3][x] == '1')
+		if (args[x][0] == '1' && args[x][5] == '1')
 			return (0);
-		if (args[2][x] == '3' && args[3][x] == '3')
+		if (args[x][0] == '3' && args[x][5] == '3')
 			return (0);
 		x++;
 	}

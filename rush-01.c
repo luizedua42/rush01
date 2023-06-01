@@ -23,9 +23,8 @@ int	main(int argc, char **argv)
 	matrix = init_matrix(argv);
 	if (!lines_are_valid(matrix) || !cols_are_valid(matrix))
 	{
-		printf("error\n");
 		free_matrix(matrix, 4);
-		return (0);
+		return (error());
 	}
-	print_borders(matrix, 4);
+	print_matrix(matrix);
 }
