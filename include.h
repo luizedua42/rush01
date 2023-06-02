@@ -21,9 +21,7 @@ int		error(void);
 int		cols_are_valid(char **args);
 int		lines_are_valid(char **args);
 int		lines_are_valid(char **args);
-void	print_matrix(char **borders, int size);
 char	**init_matrix(char **argv);
-void	free_matrix(char **matrix, int height);
 void	putspaces(void);
 void	putspace(void);
 void	ft_putchar(char c);
@@ -39,5 +37,7 @@ char	**c_4xxxx1(void);
 char	***init_meta_matrix(void);
 int		check_prefix(char *s1, char *prefix);
 char	*get_string(int left_up, int right_down, char ***meta, char *prefix);
+void	free_matrix(char **matrix, int height);
+void	print_matrix(char **borders, int height, int witdh);
 
 #endif

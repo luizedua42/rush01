@@ -24,9 +24,10 @@ int	main(int argc, char **argv)
 	matrix = init_matrix(argv);
 	if (!lines_are_valid(matrix) || !cols_are_valid(matrix))
 	{
-		free_matrix(matrix, 4);
+		free_matrix(matrix, 6);
 		return (error());
 	}
 	meta_matrix = init_meta_matrix();
-	print_matrix(meta_matrix[0], 4);
+	print_matrix(meta_matrix[1], 3, 4);
+	free_matrix(matrix, 3);
 }

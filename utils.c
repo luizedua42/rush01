@@ -28,19 +28,19 @@ int	check_prefix(char *s1, char *prefix)
 	return (1);
 }
 
-void	print_matrix(char **borders, int size)
+void	print_matrix(char **borders, int height, int width)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	while (i < size)
+	while (i < height)
 	{
-		while (j < size)
+		while (j < width)
 		{
 			ft_putchar(borders[i][j]);
-			if (j != (size - 1))
+			if (j != (width - 1))
 				ft_putchar(' ');
 			j++;
 		}
