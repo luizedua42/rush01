@@ -76,8 +76,11 @@ static char	*get_1xxxx3_string(char ***meta, char *prefix)
 
 static char	*get_1xxxx4_string(char ***meta, char *prefix)
 {
-	(void)prefix;
-	return (meta[2][0]);
+	if (!prefix)
+		return (meta[2][0]);
+	if (1 == check_prefix(meta[2][0], prefix))
+		return (meta[2][0]);
+	return (NULL);
 }
 
 static char	*get_2xxxx2_string(char ***meta, char *prefix)
@@ -146,6 +149,63 @@ static char	*get_3xxxx2_string(char ***meta, char *prefix)
 
 static char	*get_4xxxx1_string(char ***meta, char *prefix)
 {
-	(void)prefix;
-	return (meta[7][0]);
+	if (!prefix)
+		return (meta[7][0]);
+	if (1 == check_prefix(meta[7][0], prefix))
+		return (meta[7][0]);
+	return (NULL);
 }
+
+// #include <assert.h>
+// #include <stdio.h>
+// #include <string.h>
+// #include "utils.c"
+// // test get_string:
+//
+// #include "init_meta_matrix_01.c"
+// #include "init_meta_matrix_02.c"
+//
+// int	main(void)
+// {
+// 	char	***meta;
+// 	char	*prefix;
+//
+// 	meta = init_meta_matrix();
+// 	prefix = NULL;
+// 	assert(!strcmp(get_string(1, 2, meta, prefix), "4123"));
+// 	assert(!strcmp(get_string(1, 3, meta, prefix), "4132"));
+// 	assert(!strcmp(get_string(1, 4, meta, prefix), "4321"));
+// 	assert(!strcmp(get_string(2, 2, meta, prefix), "1423"));
+// 	assert(!strcmp(get_string(2, 3, meta, prefix), "1432"));
+// 	assert(!strcmp(get_string(3, 1, meta, prefix), "2134"));
+// 	assert(!strcmp(get_string(3, 2, meta, prefix), "1342"));
+// 	assert(!strcmp(get_string(4, 1, meta, prefix), "1234"));
+// 	prefix = "1";
+// 	assert(NULL == get_string(1, 2, meta, prefix));
+// 	assert(NULL == get_string(1, 3, meta, prefix));
+// 	assert(NULL == get_string(1, 4, meta, prefix));
+// 	assert(!strcmp(get_string(2, 2, meta, prefix), "1423"));
+// 	assert(!strcmp(get_string(2, 3, meta, prefix), "1432"));
+// 	assert(!strcmp(get_string(3, 1, meta, prefix), "1324"));
+// 	assert(!strcmp(get_string(3, 2, meta, prefix), "1342"));
+// 	assert(!strcmp(get_string(4, 1, meta, prefix), "1234"));
+// 	prefix = "14";
+// 	assert(get_string(1, 2, meta, prefix) == NULL);
+// 	assert(get_string(1, 3, meta, prefix) == NULL);
+// 	assert(!strcmp(get_string(2, 2, meta, prefix), "1423"));
+// 	assert(!strcmp(get_string(2, 3, meta, prefix), "1432"));
+// 	assert(NULL == get_string(1, 4, meta, prefix));
+// 	assert(NULL == get_string(3, 1, meta, prefix));
+// 	assert(NULL == get_string(3, 2, meta, prefix));
+// 	assert(NULL == get_string(4, 1, meta, prefix));
+// 	prefix = "43";
+// 	assert(!strcmp(get_string(1, 2, meta, prefix), "4312"));
+// 	assert(!strcmp(get_string(1, 3, meta, prefix), "4312"));
+// 	assert(NULL == (get_string(2, 2, meta, prefix)));
+// 	assert(NULL == (get_string(2, 3, meta, prefix)));
+// 	assert(!strcmp(get_string(1, 4, meta, prefix), "4321"));
+// 	assert(NULL == get_string(3, 1, meta, prefix));
+// 	assert(NULL == get_string(3, 2, meta, prefix));
+// 	assert(NULL == get_string(4, 1, meta, prefix));
+// 	printf("all tests passed!\n");
+// }
