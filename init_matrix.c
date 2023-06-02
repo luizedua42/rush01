@@ -44,13 +44,14 @@ static char	**create_matrix(void)
 {
 	char	**matrix;
 
-	matrix = malloc(6 * sizeof(char *));
+	matrix = malloc(7 * sizeof(char *));
 	matrix[0] = malloc(6 * sizeof(char));
 	matrix[1] = malloc(6 * sizeof(char));
 	matrix[2] = malloc(6 * sizeof(char));
 	matrix[3] = malloc(6 * sizeof(char));
 	matrix[4] = malloc(6 * sizeof(char));
 	matrix[5] = malloc(6 * sizeof(char));
+	matrix[6] = NULL;
 	return (matrix);
 }
 

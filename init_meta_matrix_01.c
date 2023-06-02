@@ -32,15 +32,12 @@ char	**c_1xxxx2(void)
 {
 	char	**matrix;
 
-	matrix = malloc(4 * sizeof(char *));
-	matrix[0] = malloc(5 * sizeof(char));
-	matrix[1] = malloc(5 * sizeof(char));
-	matrix[2] = malloc(5 * sizeof(char));
-	matrix[3] = malloc(5 * sizeof(char));
+	matrix = malloc(5 * sizeof(char *));
 	matrix[0] = "4123";
 	matrix[1] = "4132";
 	matrix[2] = "4213";
 	matrix[3] = "4312";
+	matrix[4] = NULL;
 	return (matrix);
 }
 
@@ -48,13 +45,11 @@ char	**c_1xxxx3(void)
 {
 	char	**matrix;
 
-	matrix = malloc(3 * sizeof(char *));
-	matrix[0] = malloc(5 * sizeof(char));
-	matrix[1] = malloc(5 * sizeof(char));
-	matrix[2] = malloc(5 * sizeof(char));
+	matrix = malloc(4 * sizeof(char *));
 	matrix[0] = "4132";
 	matrix[1] = "4231";
 	matrix[2] = "4312";
+	matrix[3] = NULL;
 	return (matrix);
 }
 
@@ -62,9 +57,9 @@ char	**c_1xxxx4(void)
 {
 	char	**matrix;
 
-	matrix = malloc(1 * sizeof(char *));
-	matrix[0] = malloc(5 * sizeof(char));
+	matrix = malloc(2 * sizeof(char *));
 	matrix[0] = "4321";
+	matrix[1] = NULL;
 	return (matrix);
 }
 
@@ -72,18 +67,13 @@ char	**c_2xxxx2(void)
 {
 	char	**matrix;
 
-	matrix = malloc(6 * sizeof(char *));
-	matrix[0] = malloc(5 * sizeof(char));
-	matrix[1] = malloc(5 * sizeof(char));
-	matrix[2] = malloc(5 * sizeof(char));
-	matrix[3] = malloc(5 * sizeof(char));
-	matrix[4] = malloc(5 * sizeof(char));
-	matrix[5] = malloc(5 * sizeof(char));
+	matrix = malloc(7 * sizeof(char *));
 	matrix[0] = "1423";
 	matrix[1] = "2143";
 	matrix[2] = "2413";
 	matrix[3] = "3142";
 	matrix[4] = "3241";
 	matrix[5] = "3412";
+	matrix[6] = NULL;
 	return (matrix);
 }

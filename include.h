@@ -37,7 +37,8 @@ char	**c_4xxxx1(void);
 char	***init_meta_matrix(void);
 int		check_prefix(char *s1, char *prefix);
 char	*get_string(int left_up, int right_down, char ***meta, char *prefix);
-void	free_matrix(char **matrix, int height);
-void	print_matrix(char **borders, int height, int witdh);
+void	free_meta_matrix(char ***meta);
+void	free_matrix(char **matrix);
+void	print_matrix(char **matrix, int width);
 
 #endif

@@ -12,12 +12,22 @@
 
 #include "include.h"
 
-void	free_matrix(char **matrix, int height)
+void	free_meta_matrix(char ***meta_matrix)
+{
+	int	k;
+
+	k = -1;
+	while (++k < 8)
+		free(meta_matrix[k]);
+	free(meta_matrix);
+}
+
+void	free_matrix(char **matrix)
 {
 	int	i;
 
 	i = -1;
-	while (++i < height)
+	while (matrix[++i])
 		free(matrix[i]);
 	free(matrix);
 }
