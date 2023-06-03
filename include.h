@@ -17,6 +17,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define LEFT 0
+# define RIGHT 1
+# define UP 0
+# define DOWN 1
+
 int		error(void);
 int		cols_are_valid(char **args);
 int		lines_are_valid(char **args);
@@ -37,7 +42,8 @@ char	**c_4xxxx1(void);
 char	**c_2xxxx1(void);
 char	***init_meta_matrix(void);
 int		check_prefix(char *s1, char *prefix);
-char	*get_string(int left_up, int right_down, char ***meta, char *prefix);
+char	*get_row_string(int pair[2], char ***meta, char *prefix, int prev);
+char	*get_col_string(int pair[2], char ***meta, char *prefix, int prev);
 void	free_meta_matrix(char ***meta);
 void	free_matrix(char **matrix);
 void	print_matrix(char **matrix, int width);
