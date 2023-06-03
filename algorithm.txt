@@ -1,29 +1,29 @@
 # 1 3 2 3 #
-1 4 1 3 2 3
-2 3 x x x 2
-3 1 x x x 1
-2 2 x x x 2
+1 4 2 3 1 3
+2 3 1 4 2 2
+3 1 3 2 4 1
+2 2 4 1 3 2
 # 3 1 3 2 #
 
 instructions:
-(line step)
--> go to first 'x' (unfilled) position found
+(line function)
+-> go to first 'x' (unfilled) position found (if not found, print matrix and exit)
 -> check values found on the filled positions in the current line 
 -> set `char *prefix` with it
 -> check left and right for current line
 -> call get_string with corresponding arguments for left, right, prev and prefix
 -> if the returned string is not empty, fill the line with the returned string
-and call column step witout prev flag
+and call column function witout prev flag
 -> if the returned string is empty, delete last column filled (except its prefix) and call column
-step with a prev flag
+function with a prev flag
 
-(column step)
--> go to first 'x' (unfilled) position found
+(column function)
+-> go to first 'x' (unfilled) position found (if not found, print matrix and exit)
 -> check values found on the filled positions in the current collum
 -> set `char *prefix` with those values
 -> check up and down for current collumn
 -> call get_string with corresponding arguments for up, down, prev and prefix
 -> if the returned string is not empty, fill the column with the returned string
-and call line step witout prev flag
+and call line function witout prev flag
 -> if the returned string is empty, delete last line filled (except it's prefix) and call line 
-step with a prev flag
+function with a prev flag
