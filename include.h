@@ -34,6 +34,7 @@ char	**c_2xxxx3(void);
 char	**c_3xxxx1(void);
 char	**c_3xxxx2(void);
 char	**c_4xxxx1(void);
+char	**c_2xxxx1(void);
 char	***init_meta_matrix(void);
 int		check_prefix(char *s1, char *prefix);
 char	*get_string(int left_up, int right_down, char ***meta, char *prefix);

@@ -12,6 +12,20 @@
 
 #include "include.h"
 
+char	**c_2xxxx2(void)
+{
+	char	**matrix;
+
+	matrix = malloc(7 * sizeof(char *));
+	matrix[0] = "1423";
+	matrix[1] = "2143";
+	matrix[2] = "2413";
+	matrix[3] = "3142";
+	matrix[4] = "3241";
+	matrix[5] = "3412";
+	matrix[6] = NULL;
+	return (matrix);
+}
 char	**c_2xxxx3(void)
 {
 	char	**matrix;

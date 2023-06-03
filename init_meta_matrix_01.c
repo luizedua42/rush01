@@ -16,15 +16,17 @@ char	***init_meta_matrix(void)
 {
 	char	***meta_matrix;
 
-	meta_matrix = malloc(8 * sizeof(char **));
+	meta_matrix = malloc(10 * sizeof(char **));
 	meta_matrix[0] = c_1xxxx2();
 	meta_matrix[1] = c_1xxxx3();
 	meta_matrix[2] = c_1xxxx4();
-	meta_matrix[3] = c_2xxxx2();
-	meta_matrix[4] = c_2xxxx3();
-	meta_matrix[5] = c_3xxxx1();
-	meta_matrix[6] = c_3xxxx2();
-	meta_matrix[7] = c_4xxxx1();
+	meta_matrix[3] = c_2xxxx1();
+	meta_matrix[4] = c_2xxxx2();
+	meta_matrix[5] = c_2xxxx3();
+	meta_matrix[6] = c_3xxxx1();
+	meta_matrix[7] = c_3xxxx2();
+	meta_matrix[8] = c_4xxxx1();
+	meta_matrix[9] = NULL;
 	return (meta_matrix);
 }
 
@@ -63,17 +65,13 @@ char	**c_1xxxx4(void)
 	return (matrix);
 }
 
-char	**c_2xxxx2(void)
+char	**c_2xxxx1(void)
 {
 	char	**matrix;
 
-	matrix = malloc(7 * sizeof(char *));
-	matrix[0] = "1423";
-	matrix[1] = "2143";
-	matrix[2] = "2413";
-	matrix[3] = "3142";
-	matrix[4] = "3241";
-	matrix[5] = "3412";
-	matrix[6] = NULL;
+	matrix = malloc(3 * sizeof(char *));
+	matrix[0] = "3124";
+	matrix[1] = "3214";
+	matrix[2] = NULL;
 	return (matrix);
 }

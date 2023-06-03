@@ -17,7 +17,7 @@ void	free_meta_matrix(char ***meta_matrix)
 	int	k;
 
 	k = -1;
-	while (++k < 8)
+	while (meta_matrix[++k])
 		free(meta_matrix[k]);
 	free(meta_matrix);
 }
