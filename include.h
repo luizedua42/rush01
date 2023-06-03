@@ -21,6 +21,8 @@
 # define RIGHT 1
 # define UP 0
 # define DOWN 1
+# define X 0
+# define Y 1
 
 int		error(void);
 int		cols_are_valid(char **args);
@@ -47,5 +49,6 @@ char	*get_col_string(int pair[2], char ***meta, char *prefix, int prev);
 void	free_meta_matrix(char ***meta);
 void	free_matrix(char **matrix);
 void	print_matrix(char **matrix, int width);
+void	rush01_algorithm(char **borders_matrix, char ***meta_matrix);
 
 #endif
