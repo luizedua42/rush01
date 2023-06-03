@@ -55,7 +55,6 @@ static void	print_meta_matrix(char ***meta)
 	{
 		print_matrix_name(count++);
 		print_matrix(*meta, 4);
-		ft_putchar('\n');
 		meta++;
 	}
 }
