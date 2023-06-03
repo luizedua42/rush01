@@ -1,51 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_row_string.c                                   :+:      :+:    :+:   */
+/*   get_col_string.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/01 17:18:40 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/06/03 19:58:31 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/06/03 19:56:37 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/06/03 19:58:23 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include.h"
 
-static char	*get_1xxxx2_row_string(char ***meta, char *prefix, int prev);
-static char	*get_1xxxx3_row_string(char ***meta, char *prefix, int prev);
-static char	*get_1xxxx4_row_string(char ***meta, char *prefix, int prev);
-static char	*get_2xxxx1_row_string(char ***meta, char *prefix, int prev);
-static char	*get_2xxxx2_row_string(char ***meta, char *prefix, int prev);
-static char	*get_2xxxx3_row_string(char ***meta, char *prefix, int prev);
-static char	*get_3xxxx1_row_string(char ***meta, char *prefix, int prev);
-static char	*get_3xxxx2_row_string(char ***meta, char *prefix, int prev);
-static char	*get_4xxxx1_row_string(char ***meta, char *prefix, int prev);
+static char	*get_1xxxx2_col_string(char ***meta, char *prefix, int prev);
+static char	*get_1xxxx3_col_string(char ***meta, char *prefix, int prev);
+static char	*get_1xxxx4_col_string(char ***meta, char *prefix, int prev);
+static char	*get_2xxxx1_col_string(char ***meta, char *prefix, int prev);
+static char	*get_2xxxx2_col_string(char ***meta, char *prefix, int prev);
+static char	*get_2xxxx3_col_string(char ***meta, char *prefix, int prev);
+static char	*get_3xxxx1_col_string(char ***meta, char *prefix, int prev);
+static char	*get_3xxxx2_col_string(char ***meta, char *prefix, int prev);
+static char	*get_4xxxx1_col_string(char ***meta, char *prefix, int prev);
 
-char	*get_row_string(int pair[2], char ***meta, char *prefix, int prev)
+char	*get_col_string(int pair[2], char ***meta, char *prefix, int prev)
 {
 	if (pair[LEFT] == 1 && pair[RIGHT] == 2)
-		return (get_1xxxx2_row_string(meta, prefix, prev));
+		return (get_1xxxx2_col_string(meta, prefix, prev));
 	if (pair[LEFT] == 1 && pair[RIGHT] == 3)
-		return (get_1xxxx3_row_string(meta, prefix, prev));
+		return (get_1xxxx3_col_string(meta, prefix, prev));
 	if (pair[LEFT] == 1 && pair[RIGHT] == 4)
-		return (get_1xxxx4_row_string(meta, prefix, prev));
+		return (get_1xxxx4_col_string(meta, prefix, prev));
 	if (pair[LEFT] == 2 && pair[RIGHT] == 1)
-		return (get_2xxxx1_row_string(meta, prefix, prev));
+		return (get_2xxxx1_col_string(meta, prefix, prev));
 	if (pair[LEFT] == 2 && pair[RIGHT] == 2)
-		return (get_2xxxx2_row_string(meta, prefix, prev));
+		return (get_2xxxx2_col_string(meta, prefix, prev));
 	if (pair[LEFT] == 2 && pair[RIGHT] == 3)
-		return (get_2xxxx3_row_string(meta, prefix, prev));
+		return (get_2xxxx3_col_string(meta, prefix, prev));
 	if (pair[LEFT] == 3 && pair[RIGHT] == 1)
-		return (get_3xxxx1_row_string(meta, prefix, prev));
+		return (get_3xxxx1_col_string(meta, prefix, prev));
 	if (pair[LEFT] == 3 && pair[RIGHT] == 2)
-		return (get_3xxxx2_row_string(meta, prefix, prev));
+		return (get_3xxxx2_col_string(meta, prefix, prev));
 	if (pair[LEFT] == 4 && pair[RIGHT] == 1)
-		return (get_4xxxx1_row_string(meta, prefix, prev));
+		return (get_4xxxx1_col_string(meta, prefix, prev));
 	return (NULL);
 }
 
-static char	*get_1xxxx2_row_string(char ***meta, char *prefix, int prev)
+static char	*get_1xxxx2_col_string(char ***meta, char *prefix, int prev)
 {
 	int			string_index;
 	int			strings_matched;
@@ -73,7 +73,7 @@ static char	*get_1xxxx2_row_string(char ***meta, char *prefix, int prev)
 	return (NULL);
 }
 
-static char	*get_1xxxx3_row_string(char ***meta, char *prefix, int prev)
+static char	*get_1xxxx3_col_string(char ***meta, char *prefix, int prev)
 {
 	int			string_index;
 	int			strings_matched;
@@ -101,7 +101,7 @@ static char	*get_1xxxx3_row_string(char ***meta, char *prefix, int prev)
 	return (NULL);
 }
 
-static char	*get_1xxxx4_row_string(char ***meta, char *prefix, int prev)
+static char	*get_1xxxx4_col_string(char ***meta, char *prefix, int prev)
 {
 	if (!prev)
 	{
@@ -113,7 +113,7 @@ static char	*get_1xxxx4_row_string(char ***meta, char *prefix, int prev)
 	return (NULL);
 }
 
-static char	*get_2xxxx1_row_string(char ***meta, char *prefix, int prev)
+static char	*get_2xxxx1_col_string(char ***meta, char *prefix, int prev)
 {
 	int			string_index;
 	int			strings_matched;
@@ -141,7 +141,7 @@ static char	*get_2xxxx1_row_string(char ***meta, char *prefix, int prev)
 	return (NULL);
 }
 
-static char	*get_2xxxx2_row_string(char ***meta, char *prefix, int prev)
+static char	*get_2xxxx2_col_string(char ***meta, char *prefix, int prev)
 {
 	int			string_index;
 	int			strings_matched;
@@ -169,7 +169,7 @@ static char	*get_2xxxx2_row_string(char ***meta, char *prefix, int prev)
 	return (NULL);
 }
 
-static char	*get_2xxxx3_row_string(char ***meta, char *prefix, int prev)
+static char	*get_2xxxx3_col_string(char ***meta, char *prefix, int prev)
 {
 	int			string_index;
 	int			strings_matched;
@@ -197,7 +197,7 @@ static char	*get_2xxxx3_row_string(char ***meta, char *prefix, int prev)
 	return (NULL);
 }
 
-static char	*get_3xxxx1_row_string(char ***meta, char *prefix, int prev)
+static char	*get_3xxxx1_col_string(char ***meta, char *prefix, int prev)
 {
 	int			string_index;
 	int			strings_matched;
@@ -225,7 +225,7 @@ static char	*get_3xxxx1_row_string(char ***meta, char *prefix, int prev)
 	return (NULL);
 }
 
-static char	*get_3xxxx2_row_string(char ***meta, char *prefix, int prev)
+static char	*get_3xxxx2_col_string(char ***meta, char *prefix, int prev)
 {
 	int			string_index;
 	int			strings_matched;
@@ -253,7 +253,7 @@ static char	*get_3xxxx2_row_string(char ***meta, char *prefix, int prev)
 	return (NULL);
 }
 
-static char	*get_4xxxx1_row_string(char ***meta, char *prefix, int prev)
+static char	*get_4xxxx1_col_string(char ***meta, char *prefix, int prev)
 {
 	if (!prev)
 	{
@@ -286,105 +286,106 @@ static char	*get_4xxxx1_row_string(char ***meta, char *prefix, int prev)
 // 	prev = 0;
 // 	pair[LEFT] = 1;
 // 	pair[RIGHT] = 2;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "4123"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "4123"));
 // 	prefix = "4";
 // 	prev = 1;
 // 	pair[LEFT] = 1;
 // 	pair[RIGHT] = 2;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "4132"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "4132"));
 // 	prefix = "4";
 // 	prev = 1;
 // 	pair[LEFT] = 1;
 // 	pair[RIGHT] = 2;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "4213"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "4213"));
 // 	prefix = "4";
 // 	prev = 1;
 // 	pair[LEFT] = 1;
 // 	pair[RIGHT] = 2;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "4312"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "4312"));
 // 	prefix = "4";
 // 	prev = 1;
 // 	pair[LEFT] = 1;
 // 	pair[RIGHT] = 2;
-// 	assert(NULL == get_row_string(pair, meta, prefix, prev));
+// 	assert(NULL == get_col_string(pair, meta, prefix, prev));
 // 	// PAIR 1, 3:
 // 	prefix = "42";
 // 	prev = 0;
 // 	pair[LEFT] = 1;
 // 	pair[RIGHT] = 3;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "4231"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "4231"));
 // 	prefix = "42";
 // 	prev = 1;
 // 	pair[LEFT] = 1;
 // 	pair[RIGHT] = 3;
-// 	assert(NULL == get_row_string(pair, meta, prefix, prev));
+// 	assert(NULL == get_col_string(pair, meta, prefix, prev));
 // 	// PAIR 2, 2:
 // 	prefix = "2";
 // 	prev = 0;
 // 	pair[LEFT] = 2;
 // 	pair[RIGHT] = 2;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "2143"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "2143"));
 // 	prefix = "2";
 // 	prev = 1;
 // 	pair[LEFT] = 2;
 // 	pair[RIGHT] = 2;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "2413"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "2413"));
 // 	prefix = "2";
 // 	prev = 1;
 // 	pair[LEFT] = 2;
 // 	pair[RIGHT] = 2;
-// 	assert(NULL == (get_row_string(pair, meta, prefix, prev)));
+// 	assert(NULL == (get_col_string(pair, meta, prefix, prev)));
 // 	prefix = "2";
 // 	prev = 0;
 // 	pair[LEFT] = 2;
 // 	pair[RIGHT] = 2;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "2143"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "2143"));
 // 	prefix = "2";
 // 	prev = 1;
 // 	pair[LEFT] = 2;
 // 	pair[RIGHT] = 2;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "2413"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "2413"));
 // 	// PAIR 1, 4:
 // 	prefix = "432";
 // 	prev = 0;
 // 	pair[LEFT] = 1;
 // 	pair[RIGHT] = 4;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "4321"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "4321"));
 // 	prefix = "432";
 // 	prev = 1;
 // 	pair[LEFT] = 1;
 // 	pair[RIGHT] = 4;
-// 	assert(NULL == (get_row_string(pair, meta, prefix, prev)));
+// 	assert(NULL == (get_col_string(pair, meta, prefix, prev)));
 // 	prefix = NULL;
 // 	prev = 0;
 // 	pair[LEFT] = 1;
 // 	pair[RIGHT] = 4;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "4321"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "4321"));
 // 	prefix = NULL;
 // 	prev = 1;
 // 	pair[LEFT] = 1;
 // 	pair[RIGHT] = 4;
-// 	assert(NULL == get_row_string(pair, meta, prefix, prev));
+// 	assert(NULL == get_col_string(pair, meta, prefix, prev));
 // 	// PAIR 4, 1:
 // 	prefix = "123";
 // 	prev = 0;
 // 	pair[LEFT] = 4;
 // 	pair[RIGHT] = 1;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "1234"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "1234"));
 // 	prefix = "123";
 // 	prev = 1;
 // 	pair[LEFT] = 4;
 // 	pair[RIGHT] = 1;
-// 	assert(NULL == (get_row_string(pair, meta, prefix, prev)));
+// 	assert(NULL == (get_col_string(pair, meta, prefix, prev)));
 // 	prefix = NULL;
 // 	prev = 0;
 // 	pair[LEFT] = 4;
 // 	pair[RIGHT] = 1;
-// 	assert(!strcmp(get_row_string(pair, meta, prefix, prev), "1234"));
+// 	assert(!strcmp(get_col_string(pair, meta, prefix, prev), "1234"));
 // 	prefix = NULL;
 // 	prev = 1;
 // 	pair[LEFT] = 4;
 // 	pair[RIGHT] = 1;
-// 	assert(NULL == get_row_string(pair, meta, prefix, prev));
+// 	assert(NULL == get_col_string(pair, meta, prefix, prev));
 // 	free_meta_matrix(meta);
 // 	printf("all tests passed!\n");
+// }
