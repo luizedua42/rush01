@@ -19,7 +19,7 @@ int	check_prefix(char *s1, char *prefix)
 	i = 0;
 	if (!prefix)
 		return (-1);
-	while (prefix[i])
+	while (prefix[i] && 'x' != prefix[i])
 	{
 		if (s1[i] != prefix[i])
 			return (0);
