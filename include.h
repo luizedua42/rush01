@@ -23,6 +23,8 @@
 # define DOWN 1
 # define X 0
 # define Y 1
+# define NOT_PREV 0
+# define PREV 1
 
 int		error(void);
 int		cols_are_valid(char **args);

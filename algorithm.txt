@@ -8,10 +8,10 @@
 instructions:
 (line function)
 -> go to first 'x' (unfilled) position found (if not found, print matrix and exit)
--> check values found on the filled positions in the current line 
--> set `char *prefix` with it
--> check left and right for current line
--> call get_string with corresponding arguments for left, right, prev and prefix
+-> set `char *prefix` with values found on the filled positions in the current line 
+-> set pair left and right for current line
+-> call get_line_string with corresponding arguments for left, right, prev and prefix
+***********-------------------------------------***********
 -> if the returned string is not empty, fill the line with the returned string
 and call column function witout prev flag
 -> if the returned string is empty, delete last column filled (except its prefix) and call column
@@ -19,10 +19,10 @@ function with a prev flag
 
 (column function)
 -> go to first 'x' (unfilled) position found (if not found, print matrix and exit)
--> check values found on the filled positions in the current collum
--> set `char *prefix` with those values
--> check up and down for current collumn
--> call get_string with corresponding arguments for up, down, prev and prefix
+-> set `char *prefix` with values found on the filled positions in the current collumn
+-> set pair up and down for current collumn
+-> call get_col_string with corresponding arguments for up, down, prev and prefix
+***********--------------------------------------***********
 -> if the returned string is not empty, fill the column with the returned string
 and call line function witout prev flag
 -> if the returned string is empty, delete last line filled (except it's prefix) and call line 
