@@ -13,8 +13,38 @@
 #include "include.h"
 #include <string.h>
 
-static void	col_function(char **matrix, char ***meta, int *curr, int prev,
+static int	col_function(char **matrix, char ***meta, int *curr, int prev,
 				char *line_prefix);
+
+static void	printcolfunct(char *function, char **matrix, char ***meta,
+		int *curr, int prev, char *prefix, char *last_line_prefix,
+		int debugcount)
+{
+	printf("Function: %s\n", function);
+	printf("Matrix:\n");
+	print_matrix(matrix, 6);
+	printf("curr: %d, %d\n", curr[Y], curr[X]);
+	printf("prev: %d\n", prev);
+	printf("current col prefix: %s\n", prefix);
+	printf("last line prefix: %s\n", last_line_prefix);
+	printf("debugcount: %d\n", debugcount);
+	printf("Function %s END\n\n\n", function);
+}
+
+static void	printlinefunct(char *function, char **matrix, char ***meta,
+		int *curr, int prev, char *prefix, char *last_col_prefix,
+		int debugcount)
+{
+	printf("Function: %s\n", function);
+	printf("Matrix:\n");
+	print_matrix(matrix, 6);
+	printf("curr: %d, %d\n", curr[Y], curr[X]);
+	printf("prev: %d\n", prev);
+	printf("current line prefix: %s\n", prefix);
+	printf("last col prefix: %s\n", last_col_prefix);
+	printf("debugcount: %d\n", debugcount);
+	printf("Function %s END\n\n\n", function);
+}
 
 static void	fill_curr_point(char **matrix, int *current_point, char c)
 {
@@ -28,12 +58,12 @@ static void	set_current_point(char **matrix, int *current_point)
 
 	i = -1;
 	j = -1;
-	// if (4 == (current_point)[X] && 4 == (current_point)[Y])
-	// {
-	// 	(current_point)[Y] = -1;
-	// 	(current_point)[X] = -1;
-	// 	return ;
-	// }
+	if (4 == (current_point)[X] && 4 == (current_point)[Y])
+	{
+		(current_point)[Y] = -1;
+		(current_point)[X] = -1;
+		return ;
+	}
 	while (++i < 6)
 	{
 		j = -1;
@@ -172,16 +202,26 @@ static void	del_col(char **matrix, int *curr, char *last_prefix)
 	}
 }
 
-static void	line_function(char **matrix, char ***meta, int *curr, int prev,
-		char *col_prefix)
+static int	line_function(char **matrix, char ***meta, int *curr, int prev,
+		char *last_col_prefix)
 {
 	int			line_pair[2];
 	static char	line_prefix[5];
 	char		last_line_prefix[5];
 	char		*string;
+	static int	debugcount;
 
-	print_matrix(matrix, 6);
+	debugcount++;
+	if (last_col_prefix)
+		if (!strcmp(last_col_prefix, "1xxx"))
+		{
+			printlinefunct("line_function", matrix, meta, curr, prev,
+					line_prefix, last_col_prefix, debugcount);
+			exit(1);
+		}
 	set_current_point(matrix, curr);
+	if (curr[Y] == -1 && curr[X] == -1)
+		return (-1);
 	if (*line_prefix)
 		strncpy(last_line_prefix, line_prefix, 5);
 	set_line_prefix(matrix, curr, line_prefix);
@@ -190,27 +230,36 @@ static void	line_function(char **matrix, char ***meta, int *curr, int prev,
 	if (string)
 	{
 		fill_line(matrix, curr, string);
-		col_function(matrix, meta, curr, 0, line_prefix);
+		printlinefunct("line_function", matrix, meta, curr, prev, line_prefix,
+				last_col_prefix, debugcount);
+		if (-1 == col_function(matrix, meta, curr, 0, line_prefix))
+			return (-1);
 	}
 	else if (!string)
 	{
-		del_col(matrix, curr, col_prefix);
+		del_col(matrix, curr, last_col_prefix);
 		set_line_prefix(matrix, curr, line_prefix);
-		print_matrix(matrix, 6);
-		col_function(matrix, meta, curr, 1, last_line_prefix);
+		printlinefunct("line_function", matrix, meta, curr, prev, line_prefix,
+				last_col_prefix, debugcount);
+		if (-1 == col_function(matrix, meta, curr, 1, last_line_prefix))
+			return (-1);
 	}
+	return (0);
 }
 
-static void	col_function(char **matrix, char ***meta, int *curr, int prev,
-		char *line_prefix)
+static int	col_function(char **matrix, char ***meta, int *curr, int prev,
+		char *last_line_prefix)
 {
-	int			col_pair[2];
-	static char	col_prefix[5];
-	char		last_col_prefix[5];
 	char		*string;
+	int			col_pair[2];
+	char		last_col_prefix[5];
+	static char	col_prefix[5];
+	static int	debugcount;
 
-	print_matrix(matrix, 6);
+	debugcount++;
 	set_current_point(matrix, curr);
+	if (curr[Y] == -1 && curr[X] == -1)
+		return (-1);
 	if (*col_prefix)
 		strncpy(last_col_prefix, col_prefix, 5);
 	set_col_prefix(matrix, curr, col_prefix);
@@ -219,22 +268,28 @@ static void	col_function(char **matrix, char ***meta, int *curr, int prev,
 	if (string)
 	{
 		fill_collumn(matrix, curr, string);
-		line_function(matrix, meta, curr, 0, col_prefix);
+		printcolfunct("col_function", matrix, meta, curr, prev,
+				col_prefix, last_line_prefix, debugcount);
+		if (-1 == line_function(matrix, meta, curr, 0, col_prefix))
+			return (-1);
 	}
 	else if (!string)
 	{
-		del_line(matrix, curr, line_prefix);
+		del_line(matrix, curr, last_line_prefix);
 		set_col_prefix(matrix, curr, col_prefix);
-		print_matrix(matrix, 6);
-		line_function(matrix, meta, curr, 1, last_col_prefix);
+		printcolfunct("col_function", matrix, meta, curr, prev, col_prefix,
+				last_line_prefix, debugcount);
+		if (-1 == line_function(matrix, meta, curr, 1, last_col_prefix))
+			return (-1);
 	}
+	return (0);
 }
 
 void	rush01_algorithm(char **matrix, char ***meta)
 {
-	int	*current_point;
+	int	current_point[2];
 
-	current_point = malloc(2 * sizeof(int));
+	current_point[0] = 0;
+	current_point[1] = 0;
 	line_function(matrix, meta, current_point, 0, NULL);
-	free(current_point);
 }
