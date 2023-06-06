@@ -16,7 +16,7 @@
 static int col_function(char **matrix, char ***meta, int *curr, int prev);
 
 static void printcolfunct(char *function, char **matrix, char ***meta, int *curr, int prev, char *prefix,
-                          int debugcount, char *string)
+                          char *string)
 {
     printf("Function: %s\n", function);
     printf("Matrix:\n");
@@ -25,12 +25,11 @@ static void printcolfunct(char *function, char **matrix, char ***meta, int *curr
     printf("fill collumn: %s\n", string);
     printf("prev: %d\n", prev);
     printf("current col prefix: %s\n", prefix);
-    printf("debugcount: %d\n", debugcount);
     printf("Function %s END\n\n\n", function);
 }
 
 static void printlinefunct(char *function, char **matrix, char ***meta, int *curr, int prev, char *prefix,
-                          int debugcount, char *string)
+                          char *string)
 {
     printf("Function: %s\n", function);
     printf("Matrix:\n");
@@ -39,7 +38,6 @@ static void printlinefunct(char *function, char **matrix, char ***meta, int *cur
     printf("fill line: %s\n", string);
     printf("prev: %d\n", prev);
     printf("current line prefix: %s\n", prefix);
-    printf("debugcount: %d\n", debugcount);
     printf("Function %s END\n\n\n", function);
 }
 
@@ -164,10 +162,32 @@ static void fill_line(char **matrix, int *curr, char *string)
 
 static void del_last_line(char **matrix, int *curr)
 {
+	int i;
+	int j;
+
+	i = 0;
+	j = curr[X];
+	if (curr[Y] == 1)
+		return ;
+	while (i != curr[Y] - 1)
+		i++;
+	while (j != 5)
+		matrix[i][j++] = 'x';
 }
 
 static void del_last_col(char **matrix, int *curr)
 {
+	int i;
+	int j;
+
+	i = curr[Y];
+	j = 0;
+	if (curr[X] == 1)
+		return ;
+	while (j != curr[X] - 1)
+		j++;
+	while (i != 5)
+		matrix[i++][j] = 'x';
 }
 
 static int line_function(char **matrix, char ***meta, int *curr, int prev)
@@ -175,9 +195,7 @@ static int line_function(char **matrix, char ***meta, int *curr, int prev)
     int line_pair[2];
     char line_prefix[] = "xxxx";
     char *string;
-    static int debugcount;
 
-    debugcount++;
     if (!set_current_point(matrix, curr))
         return (-1);
     set_line_prefix(matrix, curr, line_prefix);
@@ -186,14 +204,14 @@ static int line_function(char **matrix, char ***meta, int *curr, int prev)
     if (string)
     {
         fill_line(matrix, curr, string);
-        printlinefunct("line_function", matrix, meta, curr, prev, line_prefix, debugcount, string);
+        printlinefunct("line_function", matrix, meta, curr, prev, line_prefix, string);
         col_function(matrix, meta, curr, 0);
     }
     else if (!string)
     {
         del_last_col(matrix, curr);
         set_line_prefix(matrix, curr, line_prefix);
-        printlinefunct("line_function", matrix, meta, curr, prev, line_prefix, debugcount, string);
+        printlinefunct("line_function", matrix, meta, curr, prev, line_prefix, string);
         col_function(matrix, meta, curr, 1);
     }
     return (0);
@@ -204,11 +222,7 @@ static int col_function(char **matrix, char ***meta, int *curr, int prev)
     char *string;
     int col_pair[2];
     char col_prefix[5] = "xxxx";
-    static int debugcount;
 
-    debugcount++;
-    if (4 == debugcount)
-        exit(0);
     if (!set_current_point(matrix, curr))
         return (-1);
     set_col_prefix(matrix, curr, col_prefix);
@@ -217,14 +231,14 @@ static int col_function(char **matrix, char ***meta, int *curr, int prev)
     if (string)
     {
         fill_collumn(matrix, curr, string);
-        printcolfunct("col_function", matrix, meta, curr, prev, col_prefix, debugcount, string);
+        printcolfunct("col_function", matrix, meta, curr, prev, col_prefix, string);
         if (-1 == line_function(matrix, meta, curr, 0))
             return (-1);
     }
     else if (!string)
     {
         del_last_line(matrix, curr);
-        printcolfunct("col_function", matrix, meta, curr, prev, col_prefix, debugcount, string);
+        printcolfunct("col_function", matrix, meta, curr, prev, col_prefix, string);
         if (-1 == line_function(matrix, meta, curr, 1))
             return (-1);
     }
