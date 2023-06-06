@@ -196,6 +196,9 @@ static int line_function(char **matrix, char ***meta, int *curr, int prev)
     char line_prefix[] = "xxxx";
     char *string;
 
+	static int debug;
+	if (debug++ == 44)
+		exit(1);
     if (!set_current_point(matrix, curr))
         return (-1);
     set_line_prefix(matrix, curr, line_prefix);
