@@ -52,5 +52,6 @@ void	free_meta_matrix(char ***meta);
 void	free_matrix(char **matrix);
 void	print_matrix(char **matrix, int width);
 void	rush01_algorithm(char **borders_matrix, char ***meta_matrix);
+void	print_matrix_fd(char **matrix, int width, int fd);
 
 #endif

@@ -50,6 +50,28 @@ void	print_matrix(char **matrix, int width)
 	}
 }
 
+void	print_matrix_fd(char **matrix, int width, int fd)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (matrix[i])
+	{
+		while (j < width)
+		{
+			dprintf(fd, "%c", matrix[i][j]);
+			if (j != (width - 1))
+				dprintf(fd, " ");
+			j++;
+		}
+		j = 0;
+		dprintf(fd, "\n");
+		i++;
+	}
+}
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);

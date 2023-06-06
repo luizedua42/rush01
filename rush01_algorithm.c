@@ -212,13 +212,13 @@ static int	line_function(char **matrix, char ***meta, int *curr, int prev,
 	static int	debugcount;
 
 	debugcount++;
-	if (last_col_prefix)
-		if (!strcmp(last_col_prefix, "1xxx"))
-		{
-			printlinefunct("line_function", matrix, meta, curr, prev,
-					line_prefix, last_col_prefix, debugcount);
-			exit(1);
-		}
+	// if (last_col_prefix)
+	// 	if (!strcmp(last_col_prefix, "1xxx"))
+	// 	{
+	// 		printlinefunct("line_function", matrix, meta, curr, prev,
+	// 				line_prefix, last_col_prefix, debugcount);
+	// 		exit(1);
+	// 	}
 	set_current_point(matrix, curr);
 	if (curr[Y] == -1 && curr[X] == -1)
 		return (-1);
