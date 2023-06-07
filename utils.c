@@ -50,24 +50,23 @@ void	print_matrix(char **matrix, int width)
 	}
 }
 
-void	print_matrix_fd(char **matrix, int width, int fd)
+void	print_inner_matrix(char **matrix)
 {
 	int	i;
 	int	j;
 
-	i = 0;
-	j = 0;
-	while (matrix[i])
+	i = 1;
+	while (i < 5)
 	{
-		while (j < width)
+		j = 1;
+		while (j < 5)
 		{
-			dprintf(fd, "%c", matrix[i][j]);
-			if (j != (width - 1))
-				dprintf(fd, " ");
+			ft_putchar(matrix[i][j]);
+			if (j != 4)
+				ft_putchar(' ');
 			j++;
 		}
-		j = 0;
-		dprintf(fd, "\n");
+		ft_putchar('\n');
 		i++;
 	}
 }
@@ -75,4 +74,12 @@ void	print_matrix_fd(char **matrix, int width, int fd)
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
+}
+
+void	ft_bzero(char str[], int size)
+{
+	if (str)
+		while (size)
+			str[size--] = 0;
+	str[0] = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:48:26 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/06/01 17:19:43 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:34:36 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,34 @@ void	free_matrix(char **matrix);
 void	print_matrix(char **matrix, int width);
 void	rush01_algorithm(char **borders_matrix, char ***meta_matrix);
 void	print_matrix_fd(char **matrix, int width, int fd);
+void	set_col_prefix(char **matrix, int *current_point, char *prefix);
+void	set_line_pair(int *pair, char **matrix, int *current_point);
+void	set_col_pair(int *pair, char **matrix, int *current_point);
+void	fill_collumn(char **matrix, int *curr, char *string);
+void	fill_line(char **matrix, int *curr, char *string);
+int		set_point(char **matrix, int *current_point);
+void	set_line_prefix(char **matrix, int *current_point, char *prefix);
+void	ft_bzero(char str[], int size);
+
+char	*get_1xxxx2_row_string(char ***meta, char *prefix, int prev);
+char	*get_1xxxx3_row_string(char ***meta, char *prefix, int prev);
+char	*get_1xxxx4_row_string(char ***meta, char *prefix, int prev);
+char	*get_2xxxx1_row_string(char ***meta, char *prefix, int prev);
+char	*get_2xxxx2_row_string(char ***meta, char *prefix, int prev);
+char	*get_2xxxx3_row_string(char ***meta, char *prefix, int prev);
+char	*get_3xxxx1_row_string(char ***meta, char *prefix, int prev);
+char	*get_3xxxx2_row_string(char ***meta, char *prefix, int prev);
+char	*get_4xxxx1_row_string(char ***meta, char *prefix, int prev);
+
+char	*get_1xxxx2_col_string(char ***meta, char *prefix, int prev);
+char	*get_1xxxx3_col_string(char ***meta, char *prefix, int prev);
+char	*get_1xxxx4_col_string(char ***meta, char *prefix, int prev);
+char	*get_2xxxx1_col_string(char ***meta, char *prefix, int prev);
+char	*get_2xxxx2_col_string(char ***meta, char *prefix, int prev);
+char	*get_2xxxx3_col_string(char ***meta, char *prefix, int prev);
+char	*get_3xxxx1_col_string(char ***meta, char *prefix, int prev);
+char	*get_3xxxx2_col_string(char ***meta, char *prefix, int prev);
+char	*get_4xxxx1_col_string(char ***meta, char *prefix, int prev);
+void	print_inner_matrix(char **matrix);
 
 #endif
