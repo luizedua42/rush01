@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "include.h"
-#include <string.h>
 
 static int	col_function(char **matrix, char ***meta, int *curr, int prev);
 static int	line_function(char **matrix, char ***meta, int *curr, int prev);
@@ -27,7 +26,7 @@ void	rush01_algorithm(char **matrix, char ***meta)
 	if (-1 == line_function(matrix, meta, current_point, 0))
 		error();
 	else
-		print_matrix(matrix, 6);
+		print_inner_matrix(matrix);
 }
 
 static void	del_last_line(char **matrix, int *curr)

@@ -81,5 +81,6 @@ char	*get_2xxxx3_col_string(char ***meta, char *prefix, int prev);
 char	*get_3xxxx1_col_string(char ***meta, char *prefix, int prev);
 char	*get_3xxxx2_col_string(char ***meta, char *prefix, int prev);
 char	*get_4xxxx1_col_string(char ***meta, char *prefix, int prev);
+void	print_inner_matrix(char **matrix);
 
 #endif
