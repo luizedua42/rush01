@@ -66,21 +66,23 @@ static int	line_function(char **matrix, char ***meta, int *curr, int prev)
 	char	line_prefix[5];
 
 	ft_bzero(line_prefix, 5);
-	if (!set_current_point(matrix, curr))
-		return (-1);
+	if (-1 == set_point(matrix, curr) || 0 == set_point(matrix, curr))
+		return (set_point(matrix, curr));
 	set_line_prefix(matrix, curr, line_prefix);
 	set_line_pair(line_pair, matrix, curr);
 	string = get_row_string(line_pair, meta, line_prefix, prev);
 	if (string)
 	{
 		fill_line(matrix, curr, string);
-		col_function(matrix, meta, curr, 0);
+		if (-1 == col_function(matrix, meta, curr, 0))
+			return (-1);
 	}
 	else if (!string)
 	{
 		del_last_col(matrix, curr);
 		set_line_prefix(matrix, curr, line_prefix);
-		col_function(matrix, meta, curr, 1);
+		if (-1 == col_function(matrix, meta, curr, 1))
+			return (-1);
 	}
 	return (0);
 }
@@ -92,8 +94,8 @@ static int	col_function(char **matrix, char ***meta, int *curr, int prev)
 	char	col_prefix[5];
 
 	ft_bzero(col_prefix, 5);
-	if (!set_current_point(matrix, curr))
-		return (-1);
+	if (!set_point(matrix, curr))
+		return (0);
 	set_col_prefix(matrix, curr, col_prefix);
 	set_col_pair(col_pair, matrix, curr);
 	string = get_col_string(col_pair, meta, col_prefix, prev);

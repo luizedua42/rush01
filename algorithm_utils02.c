@@ -12,11 +12,14 @@
 
 #include "include.h"
 
-int	set_current_point(char **matrix, int *current_point)
+int	set_point(char **matrix, int *current_point)
 {
-	int	i;
-	int	j;
+	int			i;
+	int			j;
+	static int	call_counter;
 
+	if (++call_counter >= 1000)
+		return (-1);
 	i = -1;
 	j = -1;
 	while (++i < 6)

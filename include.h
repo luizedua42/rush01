@@ -58,7 +58,7 @@ void	set_line_pair(int *pair, char **matrix, int *current_point);
 void	set_col_pair(int *pair, char **matrix, int *current_point);
 void	fill_collumn(char **matrix, int *curr, char *string);
 void	fill_line(char **matrix, int *curr, char *string);
-int		set_current_point(char **matrix, int *current_point);
+int		set_point(char **matrix, int *current_point);
 void	set_line_prefix(char **matrix, int *current_point, char *prefix);
 void	ft_bzero(char str[], int size);
 
