@@ -76,3 +76,11 @@ void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
+
+void	ft_bzero(char str[], int size)
+{
+	if (str)
+		while (size)
+			str[size--] = 0;
+	str[0] = 0;
+}

@@ -26,6 +26,7 @@ char	**c_2xxxx2(void)
 	matrix[6] = NULL;
 	return (matrix);
 }
+
 char	**c_2xxxx3(void)
 {
 	char	**matrix;

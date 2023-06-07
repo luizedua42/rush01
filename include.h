@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:48:26 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/06/01 17:19:43 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/06/07 10:37:28 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,13 @@ void	free_matrix(char **matrix);
 void	print_matrix(char **matrix, int width);
 void	rush01_algorithm(char **borders_matrix, char ***meta_matrix);
 void	print_matrix_fd(char **matrix, int width, int fd);
+void	set_col_prefix(char **matrix, int *current_point, char *prefix);
+void	set_line_pair(int *pair, char **matrix, int *current_point);
+void	set_col_pair(int *pair, char **matrix, int *current_point);
+void	fill_collumn(char **matrix, int *curr, char *string);
+void	fill_line(char **matrix, int *curr, char *string);
+int		set_current_point(char **matrix, int *current_point);
+void	set_line_prefix(char **matrix, int *current_point, char *prefix);
+void	ft_bzero(char str[], int size);
 
 #endif
