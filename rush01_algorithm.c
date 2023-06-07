@@ -196,9 +196,6 @@ static int line_function(char **matrix, char ***meta, int *curr, int prev)
     char line_prefix[] = "xxxx";
     char *string;
 
-	static int debug;
-	if (debug++ == 44)
-		exit(1);
     if (!set_current_point(matrix, curr))
         return (-1);
     set_line_prefix(matrix, curr, line_prefix);
@@ -254,5 +251,6 @@ void rush01_algorithm(char **matrix, char ***meta)
 
     current_point[0] = 0;
     current_point[1] = 0;
-    line_function(matrix, meta, current_point, 0);
+    if (-1 == line_function(matrix, meta, current_point, 0))
+		error();
 }
