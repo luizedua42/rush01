@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:48:26 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/06/07 10:37:28 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:34:36 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,25 @@ void	fill_line(char **matrix, int *curr, char *string);
 int		set_current_point(char **matrix, int *current_point);
 void	set_line_prefix(char **matrix, int *current_point, char *prefix);
 void	ft_bzero(char str[], int size);
+
+char	*get_1xxxx2_row_string(char ***meta, char *prefix, int prev);
+char	*get_1xxxx3_row_string(char ***meta, char *prefix, int prev);
+char	*get_1xxxx4_row_string(char ***meta, char *prefix, int prev);
+char	*get_2xxxx1_row_string(char ***meta, char *prefix, int prev);
+char	*get_2xxxx2_row_string(char ***meta, char *prefix, int prev);
+char	*get_2xxxx3_row_string(char ***meta, char *prefix, int prev);
+char	*get_3xxxx1_row_string(char ***meta, char *prefix, int prev);
+char	*get_3xxxx2_row_string(char ***meta, char *prefix, int prev);
+char	*get_4xxxx1_row_string(char ***meta, char *prefix, int prev);
+
+char	*get_1xxxx2_col_string(char ***meta, char *prefix, int prev);
+char	*get_1xxxx3_col_string(char ***meta, char *prefix, int prev);
+char	*get_1xxxx4_col_string(char ***meta, char *prefix, int prev);
+char	*get_2xxxx1_col_string(char ***meta, char *prefix, int prev);
+char	*get_2xxxx2_col_string(char ***meta, char *prefix, int prev);
+char	*get_2xxxx3_col_string(char ***meta, char *prefix, int prev);
+char	*get_3xxxx1_col_string(char ***meta, char *prefix, int prev);
+char	*get_3xxxx2_col_string(char ***meta, char *prefix, int prev);
+char	*get_4xxxx1_col_string(char ***meta, char *prefix, int prev);
 
 #endif

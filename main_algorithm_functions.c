@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm_main_functions.c                         :+:      :+:    :+:   */
+/*   main_algorithm_functions.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 20:05:51 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/06/07 10:32:49 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/06/07 11:19:58 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/06/07 11:20:35 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,21 @@
 #include <string.h>
 
 static int	col_function(char **matrix, char ***meta, int *curr, int prev);
+static int	line_function(char **matrix, char ***meta, int *curr, int prev);
+static void	del_last_col(char **matrix, int *curr);
+static void	del_last_line(char **matrix, int *curr);
+
+void	rush01_algorithm(char **matrix, char ***meta)
+{
+	int	current_point[2];
+
+	current_point[0] = 0;
+	current_point[1] = 0;
+	if (-1 == line_function(matrix, meta, current_point, 0))
+		error();
+	else
+		print_matrix(matrix, 6);
+}
 
 static void	del_last_line(char **matrix, int *curr)
 {
@@ -96,16 +111,4 @@ static int	col_function(char **matrix, char ***meta, int *curr, int prev)
 			return (-1);
 	}
 	return (0);
-}
-
-void	rush01_algorithm(char **matrix, char ***meta)
-{
-	int	current_point[2];
-
-	current_point[0] = 0;
-	current_point[1] = 0;
-	if (-1 == line_function(matrix, meta, current_point, 0))
-		error();
-	else
-		print_matrix(matrix, 6);
 }
